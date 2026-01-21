@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="home-screen">
+    <div class="seal-display">
+        <div class="seal-glyph">🜍</div>
+        <p class="tagline">O que insiste não pede licença.</p>
+    </div>
+    
+    <div class="menu">
+        <a href="{{ url_for('observador.consult') }}" class="btn btn-primary">Consultar</a>
+        <a href="{{ url_for('observador.register') }}" class="btn btn-secondary">Registro</a>
+    </div>
+</div>
+{% endblock %}

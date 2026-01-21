@@ -1,0 +1,311 @@
+{
+  "seal": {
+    "base": "[SELO]\n{seal_glyph} {entity_name} — {tagline}",
+    "conditionals": {
+      "entropy_high": "[SELO]\n{interference_marker} {entity_name} — {tagline} {interference_marker}",
+      "debt_high": "[SELO]\n{seal_glyph} {entity_name} — O preço aumenta."
+    }
+  },
+  "liturgy": {
+    "base": "[LITURGIA]\nLeis aplicáveis: {laws_applicable}\nCusto do momento: Entropia {entropy}%, Dívida {debt}%",
+    "conditionals": {
+      "entropy_high": "[LITURGIA]\n{interference_marker} Interferência detectada. Leis: {laws_applicable}\nRuído: {entropy}%",
+      "debt_high": "[LITURGIA]\nLeis: {laws_applicable}\nDívida acumulada: {debt}%. O Véu endurece.",
+      "eco": "[LITURGIA]\nLeis: {laws_applicable} | Eco detectado: {echo_symbol}\nCusto: Entropia {entropy}%, Dívida {debt}%"
+    }
+  },
+  "thesis_templates": {
+    "CAUSE": [
+      "Tese: {past_quality} no passado gerou {present_quality} no presente.",
+      "Tese: Você está vivendo consequência de {past_shadow} que se tornou {present_quality}.",
+      "Tese: O eixo é {present_quality} que nasceu de {past_quality}."
+    ],
+    "CONDITION": [
+      "Tese: {present_quality} no presente define se {future_quality} ou {future_shadow} virá.",
+      "Tese: Você está no ponto onde {present_verbo} decide a direção.",
+      "Tese: O momento pede {present_quality} para que {future_quality} se realize."
+    ],
+    "CONTRAST": [
+      "Tese: Há conflito entre {past_quality} e {present_shadow}.",
+      "Tese: Você tenta forçar {present_quality} onde o sistema pede {present_shadow}.",
+      "Tese: O eixo é tensão entre {past_quality} e {future_shadow}."
+    ],
+    "ELABORATION": [
+      "Tese: {present_quality} detalha e amplifica {past_quality}.",
+      "Tese: O tema {present_quality} se desenvolve a partir de {past_quality}.",
+      "Tese: {present_quality} é a forma atual de {past_quality}."
+    ]
+  },
+  "finding_past_templates": {
+    "fogo": [
+      "Passado: {past_quality} se acumulou enquanto {past_shadow} crescia.",
+      "Passado: você acumulou {past_quality} até que virou {past_shadow}.",
+      "Passado: {past_quality} foi intenso, mas {past_shadow} se manteve."
+    ],
+    "agua": [
+      "Passado: {past_quality} fluiu enquanto {past_shadow} se acumulava.",
+      "Passado: você moveu {past_quality}, mas {past_shadow} ficou estagnado.",
+      "Passado: {past_quality} trouxe mudança, porém {past_shadow} permaneceu."
+    ],
+    "terra": [
+      "Passado: {past_quality} se solidificou enquanto {past_shadow} endurecia.",
+      "Passado: você criou base com {past_quality}, mas {past_shadow} virou peso.",
+      "Passado: {past_quality} sustentou, porém {past_shadow} limitou."
+    ],
+    "ar": [
+      "Passado: {past_quality} circulou enquanto {past_shadow} dispersava.",
+      "Passado: você moveu com {past_quality}, mas {past_shadow} criou instabilidade.",
+      "Passado: {past_quality} abriu caminhos, porém {past_shadow} impediu direção."
+    ],
+    "éter": [
+      "Passado: {past_quality} se manifestou enquanto {past_shadow} permaneceu oculto.",
+      "Passado: você criou espaço com {past_quality}, mas {past_shadow} preencheu.",
+      "Passado: {past_quality} permitiu transformação, porém {past_shadow} bloqueou."
+    ]
+  },
+  "finding_present_templates": {
+    "fogo": [
+      "Presente: você {present_verbo} com {present_quality}, mas {present_shadow} ameaça.",
+      "Presente: você tenta compensar com força o que pede critério.",
+      "Presente: {present_quality} está ativo, enquanto {present_shadow} pressiona."
+    ],
+    "agua": [
+      "Presente: você {present_verbo} com {present_quality}, mas {present_shadow} pode afogar.",
+      "Presente: você flui com {present_quality}, enquanto {present_shadow} cria turbulência.",
+      "Presente: {present_verbo} seguindo {present_quality}, porém {present_shadow} resiste."
+    ],
+    "terra": [
+      "Presente: você {present_verbo} com {present_quality}, mas {present_shadow} pode imobilizar.",
+      "Presente: você sustenta com {present_quality}, enquanto {present_shadow} pesa.",
+      "Presente: {present_verbo} usando {present_quality}, porém {present_shadow} limita."
+    ],
+    "ar": [
+      "Presente: você {present_verbo} com {present_quality}, mas {present_shadow} pode dispersar.",
+      "Presente: você move com {present_quality}, enquanto {present_shadow} confunde direção.",
+      "Presente: {present_verbo} através de {present_quality}, porém {present_shadow} desvia."
+    ],
+    "éter": [
+      "Presente: você {present_verbo} com {present_quality}, mas {present_shadow} pode esvaziar.",
+      "Presente: você manifesta {present_quality}, enquanto {present_shadow} oculta.",
+      "Presente: {present_verbo} em {present_quality}, porém {present_shadow} bloqueia."
+    ]
+  },
+  "warrant_by_relation": {
+    "CAUSE": [
+      "Regra: por isso, {presente_verbo} agora é continuação de {passado_qualidade}.",
+      "Regra: {passado_qualidade} gerou {presente_qualidade}; o padrão continua.",
+      "Regra: o que foi se estende no presente através de {presente_verbo}."
+    ],
+    "CONTRAST": [
+      "Regra: no entanto, {presente_qualidade} colide com {tend_sombra}; isto cria fricção.",
+      "Regra: {presente_qualidade} se opõe a {tend_sombra}; há conflito estrutural.",
+      "Regra: enquanto {presente_qualidade} avança, {tend_sombra} resiste."
+    ],
+    "CONDITION": [
+      "Regra: se você {presente_verbo} com {presente_qualidade}, a tendência muda; caso contrário, endurece.",
+      "Regra: {presente_verbo} no presente define se {futuro_qualidade} ou {futuro_sombra} virá.",
+      "Regra: a direção depende de {presente_verbo} agora."
+    ],
+    "ELABORATION": [
+      "Regra: assim, o presente detalha o que o passado apenas iniciou: {dominio} fica visível.",
+      "Regra: {presente_qualidade} desenvolve {passado_qualidade} em forma mais clara.",
+      "Regra: o tema {dominio} se amplifica do passado para o presente."
+    ]
+  },
+  "qualifier_templates": [
+    "provável",
+    "possível",
+    "se mantiver o padrão",
+    "caso não mude",
+    "se você {presente_verbo}",
+    "quando {presente_qualidade} persistir"
+  ],
+  "evidence_past_templates": [
+    "Evidência: {sinal_observavel}",
+    "Evidência do passado: {sinal_observavel}",
+    "Sinal observável: {sinal_observavel}"
+  ],
+  "evidence_present_templates": [
+    "Evidência: {sinal_observavel}",
+    "Evidência do presente: {sinal_observavel}",
+    "Sinal atual: {sinal_observavel}"
+  ],
+  "evidence_future_templates": [
+    "Evidência prevista: {sinal_observavel}",
+    "Sinal provável: {sinal_observavel}",
+    "Evidência futura: {sinal_observavel}"
+  ],
+  "past_sentence_templates": {
+    "fogo": [
+      "No passado, {past_quality} se acumulou enquanto {past_shadow} crescia silencioso.",
+      "O que foi: {past_quality} queimou rápido, deixando {past_shadow} como resíduo.",
+      "Passado: {past_quality} foi intenso, mas {past_shadow} se manteve presente."
+    ],
+    "agua": [
+      "No passado, {past_quality} fluiu enquanto {past_shadow} se acumulava nas margens.",
+      "O que foi: {past_quality} moveu tudo, mas {past_shadow} ficou estagnado.",
+      "Passado: {past_quality} trouxe mudança, porém {past_shadow} permaneceu."
+    ],
+    "terra": [
+      "No passado, {past_quality} se solidificou enquanto {past_shadow} endurecia.",
+      "O que foi: {past_quality} criou base, mas {past_shadow} virou peso.",
+      "Passado: {past_quality} sustentou, porém {past_shadow} limitou movimento."
+    ],
+    "ar": [
+      "No passado, {past_quality} circulou enquanto {past_shadow} dispersava foco.",
+      "O que foi: {past_quality} trouxe movimento, mas {past_shadow} criou instabilidade.",
+      "Passado: {past_quality} abriu caminhos, porém {past_shadow} impediu direção."
+    ],
+    "éter": [
+      "No passado, {past_quality} se manifestou enquanto {past_shadow} permaneceu oculto.",
+      "O que foi: {past_quality} criou espaço, mas {past_shadow} preencheu o vazio.",
+      "Passado: {past_quality} permitiu transformação, porém {past_shadow} bloqueou realização."
+    ]
+  },
+  "present_sentence_templates": {
+    "fogo": [
+      "No presente, {present_verbo} com {present_quality}, mas {present_shadow} ameaça consumir.",
+      "Agora: {present_quality} está ativo, enquanto {present_shadow} pressiona.",
+      "Presente: {present_verbo} mantendo {present_quality}, porém {present_shadow} cresce."
+    ],
+    "agua": [
+      "No presente, {present_verbo} com {present_quality}, mas {present_shadow} pode afogar.",
+      "Agora: {present_quality} flui, enquanto {present_shadow} cria turbulência.",
+      "Presente: {present_verbo} seguindo {present_quality}, porém {present_shadow} resiste."
+    ],
+    "terra": [
+      "No presente, {present_verbo} com {present_quality}, mas {present_shadow} pode imobilizar.",
+      "Agora: {present_quality} sustenta, enquanto {present_shadow} pesa.",
+      "Presente: {present_verbo} usando {present_quality}, porém {present_shadow} limita."
+    ],
+    "ar": [
+      "No presente, {present_verbo} com {present_quality}, mas {present_shadow} pode dispersar.",
+      "Agora: {present_quality} move, enquanto {present_shadow} confunde direção.",
+      "Presente: {present_verbo} através de {present_quality}, porém {present_shadow} desvia."
+    ],
+    "éter": [
+      "No presente, {present_verbo} com {present_quality}, mas {present_shadow} pode esvaziar.",
+      "Agora: {present_quality} se manifesta, enquanto {present_shadow} oculta.",
+      "Presente: {present_verbo} em {present_quality}, porém {present_shadow} bloqueia."
+    ]
+  },
+  "trend_sentence_templates": {
+    "fogo": [
+      "Se você mantiver {present_quality}, a tendência é {future_quality} se realizar, mas {future_shadow} também cresce.",
+      "Tendência: {future_quality} virá se {present_verbo} continuar, porém {future_shadow} será o custo.",
+      "Se {present_quality} persistir, então {future_quality} se manifesta, mas {future_shadow} acompanha."
+    ],
+    "agua": [
+      "Se você seguir {present_quality}, a tendência é {future_quality} fluir, mas {future_shadow} pode afogar.",
+      "Tendência: {future_quality} vem se {present_verbo} continuar, porém {future_shadow} se acumula.",
+      "Se {present_quality} persistir, então {future_quality} se realiza, mas {future_shadow} cresce."
+    ],
+    "terra": [
+      "Se você manter {present_quality}, a tendência é {future_quality} se solidificar, mas {future_shadow} endurece.",
+      "Tendência: {future_quality} vem se {present_verbo} continuar, porém {future_shadow} pesa mais.",
+      "Se {present_quality} persistir, então {future_quality} se estabelece, mas {future_shadow} limita."
+    ],
+    "ar": [
+      "Se você seguir {present_quality}, a tendência é {future_quality} se mover, mas {future_shadow} dispersa.",
+      "Tendência: {future_quality} vem se {present_verbo} continuar, porém {future_shadow} confunde.",
+      "Se {present_quality} persistir, então {future_quality} se realiza, mas {future_shadow} desvia."
+    ],
+    "éter": [
+      "Se você manter {present_quality}, a tendência é {future_quality} se manifestar, mas {future_shadow} oculta.",
+      "Tendência: {future_quality} vem se {present_verbo} continuar, porém {future_shadow} bloqueia.",
+      "Se {present_quality} persistir, então {future_quality} se realiza, mas {future_shadow} esvazia."
+    ]
+  },
+  "evidence_templates": {
+    "geral": [
+      "Observe: o sinal é repetição de padrões no mesmo ponto (não 'azar').",
+      "Evidência: você já viu isso antes, mas em forma diferente.",
+      "Sinal: há padrão observável que confirma a direção."
+    ],
+    "voto": [
+      "Observe: compromissos que se repetem sem realização.",
+      "Evidência: promessas que voltam sem cumprimento.",
+      "Sinal: palavras que não viram ação."
+    ],
+    "dissolucao": [
+      "Observe: estruturas que se desfazem sem substituição clara.",
+      "Evidência: mudanças que parecem perda, não transformação.",
+      "Sinal: fim sem novo começo visível."
+    ],
+    "ferro": [
+      "Observe: limites que se repetem como barreira.",
+      "Evidência: fronteiras que não se atravessam.",
+      "Sinal: bloqueios que persistem."
+    ],
+    "mare": [
+      "Observe: ciclos que se repetem sem progresso.",
+      "Evidência: ritmos que voltam ao mesmo ponto.",
+      "Sinal: alternâncias sem direção clara."
+    ]
+  },
+  "tension_templates": [
+    "Tensão: {present_quality} quer avanço; {future_shadow} quer atalhos.",
+    "O conflito: {past_quality} versus {present_shadow} define o momento.",
+    "Tensão: {present_quality} busca realização, mas {future_shadow} bloqueia.",
+    "O nó: {past_shadow} que impede {future_quality} de se manifestar.",
+    "Tensão: {present_quality} e {present_shadow} competem pela direção."
+  ],
+  "eco_templates": [
+    "Eco: {echo_symbol} retorna porque você tenta resolver no grito o que exige poda.",
+    "Eco: {echo_symbol} insiste porque o motivo original não foi resolvido.",
+    "Eco: {echo_symbol} volta porque você repete o mesmo padrão.",
+    "Eco: {echo_symbol} retorna — o que não se corta, cresce."
+  ],
+  "limit_templates": [
+    "Limite: não confunda pressa com destino.",
+    "Limite: não confunda {present_quality} com {present_shadow}.",
+    "Limite: não confunda tendência com certeza.",
+    "Limite: não confunda {past_quality} com {future_quality}.",
+    "Limite: não confunda ação com resultado garantido."
+  ],
+  "ato_templates": [
+    "Hoje, faça uma ação pequena de {verbo} sobre {tema}: {passo}.",
+    "Nas próximas 24h, execute {verbo} no tema de {tema} — {passo}.",
+    "Em 3 dias, realize {verbo} relacionado a {tema}: {passo}.",
+    "Hoje, {verbo} com foco em {tema} — {passo}.",
+    "Nas próximas horas, {verbo} sobre {tema}: {passo}.",
+    "Em 24h, {acao} sobre {tema}.",
+    "Nas próximas {prazo_horas}h, {acao} relacionado a {tema}."
+  ],
+  "preco_templates": [
+    "Por {prazo}, renuncie a {renuncia} — para que {sombra} não governe.",
+    "Por {prazo}, não {acao_proibida} — isso permite que {qualidade} se manifeste.",
+    "Por {prazo}, deixe {renuncia} de lado — necessário para {qualidade}.",
+    "Por {prazo}, evite {renuncia} — caso contrário, {sombra} domina.",
+    "Por {prazo}, não peça {renuncia} — anote evidências antes de consultar."
+  ],
+  "coda": {
+    "base": "[CODA]\nATO: {ato}\nPREÇO: {preco}",
+    "conditionals": {
+      "debt_high": "[CODA]\nATO: {ato}\nPREÇO: {preco} (Dívida acumulada: {debt}%)",
+      "entropy_high": "[CODA]\nATO: {ato}\nPREÇO: {preco}"
+    }
+  },
+  "interference_fragments": [
+    "░", "▒", "▓", "⟡", "⟠", "◐", "◑", "◒", "◓"
+  ],
+  "connectors": ["porque", "logo", "por isso", "então", "no entanto", "mas", "contudo"],
+  "time_references": ["hoje", "24h", "3 dias", "uma semana", "48h"],
+  "objects": ["uma palavra", "um gesto", "um silêncio", "um ato", "uma escolha"],
+  "consequences": ["perda temporária", "ganho parcial", "transformação", "renúncia", "aceitação"],
+  "renuncias": [
+    "perguntar de novo por 48h",
+    "buscar certeza absoluta",
+    "repetir a mesma pergunta",
+    "pressionar por resposta definitiva",
+    "consultar novamente sobre o mesmo tema"
+  ],
+  "passos_observaveis": [
+    "anote 3 evidências",
+    "escreva 7 linhas",
+    "faça uma lista",
+    "observe por 24h",
+    "documente o padrão",
+    "registre o que acontece"
+  ]
+}

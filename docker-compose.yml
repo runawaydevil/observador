@@ -1,0 +1,10 @@
+services:
+  observador:
+    build: .
+    ports:
+      - "9020:9020"
+    volumes:
+      - ./storage:/app/storage
+    environment:
+      - OBSERVADOR_PORT=9020
+    restart: unless-stopped

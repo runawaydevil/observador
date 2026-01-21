@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="register-screen">
+    <h2>Registro de Leituras</h2>
+    
+    {% if readings %}
+    <div class="readings-list">
+        {% for reading in readings %}
+        <div class="reading-item">
+            <div class="reading-time">{{ reading.formatted_time }}</div>
+            <div class="reading-question">{{ reading.question[:100] }}{% if reading.question|length > 100 %}...{% endif %}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-message">Nenhuma leitura registrada.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBSERVADOR</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👁️</text></svg>">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">OBSERVADOR</h1>
+            <p class="subtitle">O Véu do Compasso</p>
+        </header>
+        
+        <nav class="main-nav">
+            <a href="{{ url_for('observador.home') }}">Início</a>
+            <a href="{{ url_for('observador.consult') }}">Consultar</a>
+            <a href="{{ url_for('observador.register') }}">Registro</a>
+        </nav>
+        
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        
+        <footer>
+            <p>Desenvolvido pela <a href="https://0xpblab.org" target="_blank">0xpblab</a> — <a href="https://0xpblab.org" target="_blank">https://0xpblab.org</a></p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

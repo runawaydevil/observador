@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="consult-screen">
+    <h2>Faça sua pergunta</h2>
+    
+    {% if is_crisis %}
+    <div class="crisis-message">
+        <h3>Interrupção</h3>
+        <p class="crisis-text">{{ taboo_response }}</p>
+        <p class="crisis-help">{{ taboo_alternative }}</p>
+    </div>
+    {% elif taboo_response %}
+    <div class="taboo-message">
+        <h3>Tabu Detectado</h3>
+        <p>{{ taboo_response }}</p>
+        <p class="alternative">{{ taboo_alternative }}</p>
+    </div>
+    {% elif error %}
+    <div class="error-message">{{ error }}</div>
+    {% endif %}
+    
+    <form id="consult-form" method="POST" action="{{ url_for('observador.consult') }}">
+        <div class="form-group">
+            <textarea name="question" id="question" rows="4" placeholder="Digite sua pergunta..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Consultar</button>
+    </form>
+    
+    <div id="loading" class="loading" style="display: none;">
+        <div class="noise-animation">Consultando...</div>
+    </div>
+    
+    {% if reading_html %}
+    <div class="result-container {% if entropy_high %}glitch{% endif %}">
+        {{ reading_html|safe }}
+        {% if entropy_high %}
+        <div class="interference-warning">Interferência detectada. Entropia: {{ entropy }}%</div>
+        {% endif %}
+        {% if debt > 50 %}
+        <div class="debt-warning">Dívida acumulada: {{ debt }}%</div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
