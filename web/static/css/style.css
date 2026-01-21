@@ -56,6 +56,49 @@ header {
     font-size: 1.1em;
 }
 
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 44px;
+    height: 44px;
+    background: var(--bg-darker);
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    padding: 8px;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1001;
+    transition: all 0.3s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background: var(--cyan);
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+
+.menu-toggle:hover {
+    border-color: var(--cyan);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
 .main-nav {
     display: flex;
     justify-content: center;
@@ -64,6 +107,7 @@ header {
     padding: 15px;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s;
 }
 
 .main-nav a {
@@ -72,6 +116,10 @@ header {
     padding: 8px 16px;
     border: 1px solid var(--border-color);
     transition: all 0.3s;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-nav a:hover {
@@ -138,6 +186,10 @@ footer a {
     font-family: inherit;
     font-size: 1em;
     transition: all 0.3s;
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .btn-primary {
@@ -145,9 +197,15 @@ footer a {
     color: var(--cyan);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
     background: var(--cyan);
     color: var(--bg-dark);
+    outline: none;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
 }
 
 .btn-secondary {
@@ -155,19 +213,38 @@ footer a {
     color: var(--text-dim);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:focus {
     border-color: var(--text-primary);
     color: var(--text-primary);
+    outline: none;
+}
+
+.btn-secondary:active {
+    transform: scale(0.98);
+}
+
+button[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .consult-screen {
     padding: 20px;
 }
 
-.consult-screen h2 {
+.consult-screen h2,
+.consult-screen h3 {
     color: var(--magenta);
     margin-bottom: 20px;
     text-align: center;
+}
+
+.consult-screen h3 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
 }
 
 .form-group {
@@ -184,11 +261,21 @@ textarea {
     font-size: 1em;
     resize: vertical;
     min-height: 100px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    touch-action: manipulation;
 }
 
 textarea:focus {
-    outline: none;
+    outline: 2px solid var(--cyan);
+    outline-offset: 2px;
     border-color: var(--cyan);
+}
+
+textarea::placeholder {
+    color: var(--text-dim);
+    opacity: 0.7;
 }
 
 .loading {
@@ -211,6 +298,8 @@ textarea:focus {
     padding: 20px;
     border: 2px solid var(--border-color);
     background: var(--bg-darker);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .correspondences-table {
@@ -236,32 +325,44 @@ textarea:focus {
     font-weight: bold;
 }
 
+.reading-container {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 .seal, .liturgy, .reading-text, .coda {
     margin: 20px 0;
     padding: 15px;
     border-left: 3px solid;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .seal {
     border-left-color: var(--yellow);
     color: var(--yellow);
     font-weight: bold;
+    line-height: 1.6;
 }
 
 .liturgy {
     border-left-color: var(--cyan);
     color: var(--cyan);
+    line-height: 1.6;
 }
 
 .reading-text {
     border-left-color: var(--text-primary);
     white-space: pre-line;
+    line-height: 1.7;
+    word-break: break-word;
 }
 
 .coda {
     border-left-color: var(--magenta);
     color: var(--magenta);
     font-weight: bold;
+    line-height: 1.6;
 }
 
 .summary {
@@ -450,16 +551,223 @@ textarea:focus {
     font-style: italic;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        padding-top: 70px;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    header {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
     .title {
-        font-size: 1.8em;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg-dark);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 20px 20px;
+        border: none;
+        border-right: 2px solid var(--border-color);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+    
+    .main-nav.nav-open {
+        transform: translateX(0);
+    }
+    
+    .main-nav a {
+        padding: 16px;
+        text-align: left;
+        min-height: 50px;
+        border: none;
+        border-bottom: 1px solid var(--border-color);
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .main-nav a:hover {
+        background: var(--bg-darker);
+        border-bottom-color: var(--cyan);
+    }
+    
+    body.nav-open {
+        overflow: hidden;
     }
     
     .menu {
         flex-direction: column;
+        gap: 15px;
     }
     
-    .main-nav {
-        flex-direction: column;
+    .btn {
+        width: 100%;
+        padding: 14px 24px;
+        min-height: 44px;
+        font-size: 1rem;
+    }
+    
+    .home-screen {
+        padding: 20px 15px;
+    }
+    
+    .seal-display {
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .seal-glyph {
+        font-size: 3em;
+        margin-bottom: 10px;
+    }
+    
+    .consult-screen {
+        padding: 15px;
+    }
+    
+    .consult-screen h1,
+    .consult-screen h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    textarea {
+        font-size: 16px;
+        padding: 12px;
+        min-height: 120px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .result-container {
+        padding: 15px;
+        margin-top: 20px;
+    }
+    
+    .correspondences-table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 20px;
+    }
+    
+    .correspondences-table table {
+        min-width: 600px;
+        font-size: 0.9rem;
+    }
+    
+    .correspondences-table th,
+    .correspondences-table td {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+    
+    .seal, .liturgy, .reading-text, .coda {
+        margin: 15px 0;
+        padding: 12px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .reading-text {
+        line-height: 1.7;
+        word-break: break-word;
+    }
+    
+    .interference-line {
+        font-size: 0.9rem;
+        padding: 10px;
+        margin: 10px 0;
+    }
+    
+    .interference-warning,
+    .debt-warning {
+        font-size: 0.85rem;
+        padding: 10px;
+        margin-top: 15px;
+    }
+    
+    .summary {
+        padding: 12px;
+        margin-top: 15px;
+    }
+    
+    .ato, .preco {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    
+    footer {
+        padding: 15px;
+        margin-top: 30px;
+        font-size: 0.85rem;
+    }
+    
+    .register-screen {
+        padding: 15px;
+    }
+    
+    .register-screen h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .reading-item {
+        padding: 12px;
+        margin-bottom: 10px;
+    }
+    
+    .reading-time {
+        font-size: 0.85rem;
+    }
+    
+    .reading-question {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 800px;
+        padding: 20px;
+    }
+    
+    .title {
+        font-size: 2.2rem;
+    }
+    
+    .correspondences-table table {
+        font-size: 0.95rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        max-width: 900px;
     }
 }

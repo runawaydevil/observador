@@ -3,9 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OBSERVADOR</title>
+    
+    {% block meta_title %}
+    <title>OBSERVADOR — Oráculo Web | O Véu do Compasso</title>
+    {% endblock %}
+    
+    {% block meta_description %}
+    <meta name="description" content="OBSERVADOR é um oráculo web que utiliza símbolos, memória de estado e geração de linguagem natural estruturada para produzir leituras objetivas e coerentes. Desenvolvido pela 0xpblab.">
+    {% endblock %}
+    
+    {% block meta_keywords %}
+    <meta name="keywords" content="oráculo, consulta oracular, tarot, símbolos, leitura, OBSERVADOR, 0xpblab">
+    {% endblock %}
+    
+    <meta name="author" content="0xpblab">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    
+    {% set base_url = request.url_root.rstrip('/') %}
+    {% set current_url = request.url %}
+    
+    {% block canonical_url %}
+    <link rel="canonical" href="{{ current_url }}">
+    {% endblock %}
+    
+    {% block og_tags %}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="OBSERVADOR">
+    <meta property="og:title" content="{% block og_title %}OBSERVADOR — Oráculo Web | O Véu do Compasso{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Oráculo web que utiliza símbolos e geração de linguagem natural para leituras objetivas e coerentes.{% endblock %}">
+    <meta property="og:url" content="{{ current_url }}">
+    <meta property="og:locale" content="pt_BR">
+    {% endblock %}
+    
+    {% block twitter_tags %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{% block twitter_title %}OBSERVADOR — Oráculo Web{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Oráculo web que utiliza símbolos e geração de linguagem natural para leituras objetivas.{% endblock %}">
+    {% endblock %}
+    
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👁️</text></svg>">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    {% block structured_data %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "OBSERVADOR",
+        "alternateName": "O Véu do Compasso",
+        "description": "Oráculo web que utiliza símbolos, memória de estado e geração de linguagem natural estruturada para produzir leituras objetivas e coerentes",
+        "url": "{{ base_url }}",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "0xpblab",
+            "url": "https://0xpblab.org"
+        },
+        "inLanguage": "pt-BR"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "OBSERVADOR",
+        "alternateName": "O Véu do Compasso",
+        "url": "{{ base_url }}",
+        "description": "Oráculo Web - O Véu do Compasso",
+        "publisher": {
+            "@type": "Organization",
+            "name": "0xpblab",
+            "url": "https://0xpblab.org"
+        },
+        "inLanguage": "pt-BR"
+    }
+    </script>
+    {% endblock %}
+    
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
     <div class="container">
@@ -14,7 +96,13 @@
             <p class="subtitle">O Véu do Compasso</p>
         </header>
         
-        <nav class="main-nav">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
             <a href="{{ url_for('observador.home') }}">Início</a>
             <a href="{{ url_for('observador.consult') }}">Consultar</a>
             <a href="{{ url_for('observador.register') }}">Registro</a>

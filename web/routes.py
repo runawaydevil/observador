@@ -283,3 +283,56 @@ def api_consult():
         "debt": state.debt,
         "entropy_high": entropy_high
     })
+
+
+@bp.route('/sitemap.xml')
+def sitemap():
+    from flask import url_for
+    base_url = request.url_root.rstrip('/')
+    
+    urls = [
+        {
+            'loc': base_url + url_for('observador.home'),
+            'changefreq': 'weekly',
+            'priority': '1.0'
+        },
+        {
+            'loc': base_url + url_for('observador.consult'),
+            'changefreq': 'daily',
+            'priority': '0.9'
+        },
+        {
+            'loc': base_url + url_for('observador.register'),
+            'changefreq': 'daily',
+            'priority': '0.8'
+        }
+    ]
+    
+    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    for url in urls:
+        sitemap_xml += '  <url>\n'
+        sitemap_xml += f'    <loc>{url["loc"]}</loc>\n'
+        sitemap_xml += f'    <changefreq>{url["changefreq"]}</changefreq>\n'
+        sitemap_xml += f'    <priority>{url["priority"]}</priority>\n'
+        sitemap_xml += '  </url>\n'
+    
+    sitemap_xml += '</urlset>'
+    
+    from flask import Response
+    return Response(sitemap_xml, mimetype='application/xml')
+
+
+@bp.route('/robots.txt')
+def robots():
+    base_url = request.url_root.rstrip('/')
+    robots_txt = f"""User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /storage/
+
+Sitemap: {base_url}/sitemap.xml
+"""
+    from flask import Response
+    return Response(robots_txt, mimetype='text/plain')
