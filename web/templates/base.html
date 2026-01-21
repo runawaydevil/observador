@@ -30,16 +30,24 @@
     {% block og_tags %}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="OBSERVADOR">
-    <meta property="og:title" content="{% block og_title %}OBSERVADOR — Oráculo Web | O Véu do Compasso{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Oráculo web que utiliza símbolos e geração de linguagem natural para leituras objetivas e coerentes.{% endblock %}">
+    {% block og_title %}
+    <meta property="og:title" content="OBSERVADOR — Oráculo Web | O Véu do Compasso">
+    {% endblock %}
+    {% block og_description %}
+    <meta property="og:description" content="Oráculo web que utiliza símbolos e geração de linguagem natural para leituras objetivas e coerentes.">
+    {% endblock %}
     <meta property="og:url" content="{{ current_url }}">
     <meta property="og:locale" content="pt_BR">
     {% endblock %}
     
     {% block twitter_tags %}
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{% block twitter_title %}OBSERVADOR — Oráculo Web{% endblock %}">
-    <meta name="twitter:description" content="{% block twitter_description %}Oráculo web que utiliza símbolos e geração de linguagem natural para leituras objetivas.{% endblock %}">
+    {% block twitter_title %}
+    <meta name="twitter:title" content="OBSERVADOR — Oráculo Web">
+    {% endblock %}
+    {% block twitter_description %}
+    <meta name="twitter:description" content="Oráculo web que utiliza símbolos e geração de linguagem natural para leituras objetivas.">
+    {% endblock %}
     {% endblock %}
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👁️</text></svg>">
@@ -96,10 +104,10 @@
             <p class="subtitle">O Véu do Compasso</p>
         </header>
         
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" type="button">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
         </button>
         
         <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
